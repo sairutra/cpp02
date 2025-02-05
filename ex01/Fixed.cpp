@@ -18,19 +18,26 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	return (val);
+	return ((float)val);
 }
 
 Fixed::Fixed(const int value)
 {
 	std::cout << "Constant int constructor called" << std::endl;
+	for (int i = 0; i < 24; i++)
+	{
+		int mask = 1 << i;
+		int masked_i = value & mask;
+		std::cout << (masked_i >> i);
+	}
+	std::cout << std::endl;
 	val = value;
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Constant float constructor called" << std::endl;
-	val = value;
+	val = (int)value;
 }
 
 Fixed::Fixed()
@@ -51,6 +58,7 @@ Fixed& Fixed::operator=(const Fixed& fixed)
 std::ostream& operator<< (std::ostream &out, const Fixed& fixed)
 {
 	out << fixed.getRawBits() << std::endl;
+	return (out);
 }
 
 Fixed::Fixed(const Fixed& fixed)
