@@ -2,7 +2,6 @@
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (val);
 }
 
@@ -13,7 +12,7 @@ void Fixed::setRawBits(const int raw)
 
 int Fixed::toInt(void) const
 {
-	return (val);
+	return (int((float)val / (1 << 8)));
 }
 
 float Fixed::toFloat(void) const
@@ -24,20 +23,13 @@ float Fixed::toFloat(void) const
 Fixed::Fixed(const int value)
 {
 	std::cout << "Constant int constructor called" << std::endl;
-	for (int i = 0; i < 24; i++)
-	{
-		int mask = 1 << i;
-		int masked_i = value & mask;
-		std::cout << (masked_i >> i);
-	}
-	std::cout << std::endl;
-	val = value;
+	val = (value << (fractional));
 }
 
 Fixed::Fixed(const float value)
 {
 	std::cout << "Constant float constructor called" << std::endl;
-	val = (int)value;
+	val = (int)(value * float(1 << (fractional)));
 }
 
 Fixed::Fixed()
@@ -57,7 +49,7 @@ Fixed& Fixed::operator=(const Fixed& fixed)
 
 std::ostream& operator<< (std::ostream &out, const Fixed& fixed)
 {
-	out << fixed.getRawBits() << std::endl;
+	out << float(fixed.getRawBits()) / float((1 << (8)));
 	return (out);
 }
 

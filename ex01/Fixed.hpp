@@ -1,10 +1,13 @@
 #include <iostream>
 
+const int fixed_max = 16777216;
+const int intBitesSize = (sizeof(int) * 8);
+
 class Fixed
 {
 private:
 	int	val;
-	static const int fractional{0};
+	static const int fractional{8};
 public:
 	Fixed();
 	Fixed(const int);
