@@ -27,7 +27,6 @@ int Fixed::getFractional(void) const
 
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &fixed)
 		return (*this);
 	val = fixed.getRawBits();
@@ -130,29 +129,24 @@ Fixed Fixed::operator-- (int)
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Constant int constructor called" << std::endl;
 	val = (value << (fractional));
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Constant float constructor called" << std::endl;
 	val = (int)(value * float(1 << (fractional)));
 }
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	val = 0;
 }
 
 Fixed::Fixed(const Fixed& fixed)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	val = fixed.getRawBits();
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
