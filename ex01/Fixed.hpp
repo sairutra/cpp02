@@ -16,6 +16,7 @@ public:
 	Fixed& operator= (const Fixed&);
 	~Fixed();
 	int getRawBits(void) const;
+	int getFractional(void) const;
 	void setRawBits(const int) ;
 	float toFloat(void) const;
 	int toInt(void) const;
