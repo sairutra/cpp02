@@ -12,12 +12,12 @@ void Fixed::setRawBits(const int raw)
 
 int Fixed::toInt(void) const
 {
-	return (int((float)val / (1 << 8)));
+	return (val / (1 << fractional));
 }
 
 float Fixed::toFloat(void) const
 {
-	return ((float)val);
+	return ((float)val / (1 << fractional));
 }
 
 Fixed::Fixed(const int value)

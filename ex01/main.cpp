@@ -25,5 +25,11 @@ int main(void)
 	std::cout << "e is " << e.toInt() << " as integer" << std::endl;
 	std::cout << "f is " << f.toInt() << " as integer" << std::endl;
 
+	std::cout << "a is " << a.toFloat() << " as float" << std::endl;
+	std::cout << "b is " << b.toFloat() << " as float" << std::endl;
+	std::cout << "c is " << c.toFloat() << " as float" << std::endl;
+	std::cout << "d is " << d.toFloat() << " as float" << std::endl;
+	std::cout << "e is " << e.toFloat() << " as float" << std::endl;
+	std::cout << "f is " << f.toFloat() << " as float" << std::endl;
 	return (0);
 }
