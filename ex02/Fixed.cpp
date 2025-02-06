@@ -25,6 +25,25 @@ int Fixed::getFractional(void) const
 	return (fractional);
 }
 
+const Fixed& Fixed::min (const Fixed& f1, const Fixed& f2) 
+{
+	return (f1 < f2 ? f1 : f2);
+}
+Fixed& Fixed::min (Fixed& f1, Fixed& f2)
+{
+	return (f1 < f2 ? f1 : f2);
+}
+
+const Fixed& Fixed::max (const Fixed& f1, const Fixed& f2) 
+{
+	return (f1 > f2 ? f1 : f2);
+}
+
+Fixed& Fixed::max (Fixed& f1, Fixed& f2)
+{
+	return (f1 > f2 ? f1 : f2);
+}
+
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
 	if (this == &fixed)
@@ -40,7 +59,7 @@ bool operator==(const Fixed& f1, const Fixed& f2)
 
 bool operator!=(const Fixed& f1, const Fixed& f2)
 {
-	return (f1.getRawBits() != f2.getRawBits());
+	return !(f1 == f2);
 }
 
 bool operator< (const Fixed& f1, const Fixed& f2)
@@ -50,17 +69,17 @@ bool operator< (const Fixed& f1, const Fixed& f2)
 
 bool operator> (const Fixed& f1, const Fixed& f2)
 {
-	return (f1.getRawBits() > f2.getRawBits());
+	return !(f1 < f2);
 }
 
 bool operator>= (const Fixed& f1, const Fixed& f2)
 {
-	return (f1.getRawBits() >= f2.getRawBits());
+	return !(f1 > f2);
 }
 
 bool operator<= (const Fixed& f1, const Fixed& f2)
 {
-	return (f1.getRawBits() <= f2.getRawBits());
+	return !(f1 < f2);
 }
 
 std::ostream& operator<< (std::ostream &out, const Fixed& fixed)

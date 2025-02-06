@@ -24,6 +24,10 @@ public:
 	Fixed& operator-- ();
 	Fixed operator++ (int);
 	Fixed operator-- (int);
+	static const Fixed& min (const Fixed&, const Fixed&);
+	static Fixed& min (Fixed&, Fixed&);
+	static const Fixed& max (const Fixed&, const Fixed&);
+	static Fixed& max (Fixed&, Fixed&);
 };
 
 bool operator!= (const Fixed&, const Fixed&);
