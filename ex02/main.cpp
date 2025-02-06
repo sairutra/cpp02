@@ -10,6 +10,19 @@ int main(void)
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-
+	std::cout << a + b << std::endl;
+	std::cout << a - b << std::endl;
+	std::cout << b - a << std::endl;
+	std::cout << a / b << std::endl;
+	std::cout << b / a << std::endl;
+	std::cout << "a: " << a << " b " << b<< std::endl;
+	std::cout << (a == a) << std::endl;
+	std::cout << (a == b) << std::endl;
+	std::cout << (a != b) << std::endl;
+	std::cout << (a < b) << std::endl;
+	std::cout << (a > b) << std::endl;
+	a = b;	
+	std::cout << (a >= b) << std::endl;
+	std::cout << (a <= b) << std::endl;
 	return (0);
 }

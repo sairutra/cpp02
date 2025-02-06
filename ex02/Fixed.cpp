@@ -43,7 +43,7 @@ bool operator!=(const Fixed& f1, const Fixed& f2)
 	return (f1.getRawBits() != f2.getRawBits());
 }
 
-bool operator< (Fixed& f1, const Fixed& f2)
+bool operator< (const Fixed& f1, const Fixed& f2)
 {
 	return (f1.getRawBits() < f2.getRawBits());
 }
@@ -71,22 +71,22 @@ std::ostream& operator<< (std::ostream &out, const Fixed& fixed)
 
 Fixed operator+ (const Fixed& f1, const Fixed& f2)
 {
-	return (Fixed(f1.getRawBits() + f2.getRawBits()));
+	return (Fixed(f1.toFloat() + f2.toFloat()));
 }
 
 Fixed operator- (const Fixed& f1, const Fixed& f2)
 {
-	return (Fixed(f1.getRawBits() - f2.getRawBits()));
+	return (Fixed(f1.toFloat() - f2.toFloat()));
 }
 
 Fixed operator/ (const Fixed& f1, const Fixed& f2)
 {
-	return (Fixed(f1.getRawBits() / f2.getRawBits()));
+	return (Fixed(f1.toFloat() / f2.toFloat()));
 }
 
 Fixed operator* (const Fixed& f1, const Fixed& f2)
 {
-	return (Fixed(f1.getRawBits() * f2.getRawBits()));
+	return (Fixed(f1.toFloat() * f2.toFloat()));
 }
 
 Fixed& Fixed::operator++ ()
@@ -94,7 +94,7 @@ Fixed& Fixed::operator++ ()
 	int raw;
 
 	raw = getRawBits();
-	setRawBits(raw++);
+	setRawBits(++raw);
 	return (*this);
 }
 
@@ -103,7 +103,7 @@ Fixed& Fixed::operator-- ()
 	int raw;
 
 	raw = getRawBits();
-	setRawBits(raw--);
+	setRawBits(--raw);
 	return (*this);
 }
 
@@ -113,8 +113,8 @@ Fixed Fixed::operator++ (int)
 	int raw;
 
 	raw = temp.getRawBits();
-	temp.setRawBits(++raw);
-	return (*this);
+	setRawBits(++raw);
+	return (temp);
 }
 
 Fixed Fixed::operator-- (int)
@@ -123,8 +123,8 @@ Fixed Fixed::operator-- (int)
 	int raw;
 
 	raw = temp.getRawBits();
-	temp.setRawBits(--raw);
-	return (*this);
+	setRawBits(--raw);
+	return (temp);
 }
 
 Fixed::Fixed(const int value)
