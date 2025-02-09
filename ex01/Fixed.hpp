@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 
 const int fixed_max = 16777216;
@@ -24,3 +27,4 @@ public:
 
 std::ostream& operator<< (std::ostream& out, const Fixed&);
 
+#endif
