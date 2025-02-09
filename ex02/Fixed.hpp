@@ -1,5 +1,8 @@
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
+#include <iostream>
+#include <math.h>
 const int fixed_max = 16777216;
 const int intBitesSize = (sizeof(int) * 8);
 
@@ -42,3 +45,4 @@ Fixed operator- (const Fixed&, const Fixed&);
 Fixed operator/ (const Fixed&, const Fixed&);
 Fixed operator* (const Fixed&, const Fixed&);
 
+#endif
